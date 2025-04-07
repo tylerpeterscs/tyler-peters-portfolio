@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                background-color: rgb(56, 53, 53);
+                font-family: monospace;
+            }
+
+            .navBar {
+                justify-content: space-between;
+                display: flex;
+                font-size: small;
+                color: lightgray;
+                padding: 20px;
+            }
+
+            h2 {
+                margin-bottom: 20px;
+            }
+
+            h3 {
+                margin-bottom: 10px;
+            }
+
+            .links {
+                display: flex;
+                flex-direction: row;
+                gap: 50px;
+                justify-content: end;
+            }
+
+            .name {
+                justify-content: start;
+            }
+
+            .linkButton {
+                background: none;
+                border: none;
+                color: lightgray;
+                font-size: medium;
+                font-family: monospace;
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                cursor: pointer;
+                transition: color 0.2s, transform 0.2s;
+            }
+
+            .linkButton:hover {
+                color: white;
+                transform: translateY(-2px);
+            }
+
+            .hash {
+                color: plum;
+            }
+
+
+            .mainIntro {
+                display: flex;
+                padding: 60px;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: row;
+            }
+
+            .introAboutMe {
+                display: flex;
+                flex-direction: column;
+                margin-right: 20px;
+            }
+
+            .introFirstLine {
+                color: white;
+                font-size: large;
+                line-height: 30px;
+            }
+
+            .introSecondLineContainer {
+                display: flex;
+                align-items: center;
+                line-height: 30px;
+            }
+
+            .introSecondLine {
+                color: plum;
+                font-size: 24px;
+                line-height: 38px;
+                letter-spacing: 6px;
+                padding-top: 10px;
+            }
+
+            .universityOfUtahImage {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .uofu {
+                width: 200px;
+                height: auto;
+                max-width: 100%;
+            }
+
+            .secondaryIntroFirstLine {
+                color: lightgray;
+                font-size: small;
+                line-height: 30px;
+                padding-top: 20px;
+            }
+
+            .buttonContainer {
+                padding: 20px 0;
+                width: 100%;
+                display: flex;
+            }
+
+            .introButton {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                color: plum;
+                background-color: white;
+                padding: 14px 20px;
+                height: 50px;
+                border-radius: 25px;
+                text-align: center;
+                font-size: large;
+                font-family: monospace;
+                transition: transform 0.2s, box-shadow 0.2s;
+                cursor: pointer;
+            }
+
+            .introButton:hover {
+                transform: translateY(-4px);
+            }
+
+
+            .introPicture {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .me {
+                width: 1000px;
+                height: auto;
+                max-width: 100%;
+            }
+
+            .quoteBlock {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+                color: white;
+                height: 100px;
+                max-width: 600px;
+                margin: 0 auto;
+                height: auto;
+            }
+
+            .quote {
+                font-size: medium;
+                text-align: center;
+                border: .5px solid white;
+                padding: 12px;
+            }
+
+            .author {
+                margin-top: 10px;
+                display: flex;
+                justify-content: end;
+                font-size: small;
+                color: white;
+            }
+
+            .projects {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                margin: 100px 0;
+                padding: 30px;
+            }
+
+            .projectBar{
+                color: white;
+                justify-content: start;
+                font-size: large;
+            }
+
+            .viewAllProjectButton {
+                padding: 20px 0;
+                width: 100%;
+                display: flex;
+                justify-content: end;
+                cursor: pointer;
+            }
+
+            .projectButton {
+                color: plum;
+                height: 50px;
+                border-radius: 25px;
+                display: block;
+                border: none;
+                transition: transform 0.2s, box-shadow 0.2s;
+                cursor: pointer;
+            }
+
+            .projectButton:hover {
+                transform: translateY(-4px);
+            }
+
+            .skillBar{
+                color: white;
+                justify-content: start;
+                font-size: large;
+            }
+
+            .skills {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                color: lightgray;
+                padding: 30px;
+            }
+
+            .skillsContainer {
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+            }
+
+            .skillBoxContainer {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+                align-items: start;
+            }
+
+            .skill-box {
+                border: 1px solid white;
+                padding: 10px;
+                /* background-color: #f0f8ff; */
+                text-align: center;
+                height: 85px;
+            }
+
+            .skillsPhoto img {
+                width: 600px;
+                height: auto;
+                padding-left: 200px;
+            }
+
+            .skills-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .skill-box h3 {
+                margin-top: 0;
+                font-size: 18px;
+                color: white;
+            }
+
+            .skill-box p {
+                margin: 5px 0;
+                font-size: 16px;
+                color: lightgray;
+            }
+
+            .aboutMeBar{
+                color: white;
+                justify-content: start;
+                font-size: large;
+                padding: 30px;
+            }
+
+            .aboutMe{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                color: lightgray;
+                align-content: center;
+            }
+
+            .aboutMeParagraph {
+                flex: 1;
+                font-size: small;
+                padding-left: 20px;
+            }
+
+            .aboutMePicture {
+                flex: 0 0 auto;
+            }
+
+            .aboutMePicture img {
+                width: 600px;
+                height: auto;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div class="navBar">
+            <div class="name">
+                <h2>Tyler Peters</h2>
+            </div>
+            <div class="links">
+                <button class="linkButton"><span class="hash">#</span>home</button>
+                <button class="linkButton"><span class="hash">#</span>about me</button>
+                <button class="linkButton"><span class="hash">#</span>projects</button>
+            </div>
+        </div>
+
+        <div class="mainIntro">
+            <div class="introAboutMe">
+                <div class="introFirstLine">
+                    <h2>Tyler is a Computer Science Student at the</h2>
+                </div>
+                <div class="introSecondLineContainer">
+                    <div class="introSecondLine">
+                        <h2>University of Utah</h2>
+                    </div>
+                    <div class="universityOfUtahImage">
+                        <img class="uofu" src="uofu.png" alt="uofu">
+                    </div>
+                </div>
+                <div class="secondaryIntroFirstLine">
+                    <h2>She is passionate about tackling real world problems through code</h2>
+                </div>
+                <div class="buttonContainer">
+                    <a href="mailto:u1290405@utah.edu" class="introButton">Contact Me!</a>
+                </div>
+            </div>
+            <div class="introPicture">
+                <img class="me" src="me.png" alt="me">
+            </div>
+        </div>
+
+        <div class="quoteBlock">
+            <div class="quote">
+                <h2>"Programs must be written for people to read,</h2>
+                <h2>and only incidentally for machines to execute."</h2>
+            </div>
+            <div class="author">
+                <h2>Harold Abelson</h2>
+            </div>
+        </div>
+        <div class="projects">
+            <div class="projectBar">
+                <h2><span class="hash">#</span>projects</h2>
+            </div>
+            <div class="viewAllProjectButton">
+                <button class="projectButton" type="button">view all</button>
+            </div>
+        </div>
+        <div class="skills">
+            <div class="skillBar">
+                <h2><span class="hash">#</span>skills</h2>
+            </div>
+            <div class="skillsContainer">
+                <div class="skillPicture">
+                        <img class="skillPicture" src="Group 36.png" alt="squareAndShit">
+                    </div>
+                <div class="skillBoxContainer">
+                    <div class="skill-box">
+                            <h3>Programming Languages</h3>
+                            <p> Python, C++, Java, NET Core (C#), Kotlin, SQL</p>
+                        </div>
+                    <div class="skill-box">
+                        <h3>Familiar Technology</h3>
+                        <p> Git, MySQL, Qt, Windows, MacOS, Linux, MariaDB</p>
+                    </div>
+                    <div class="skill-box">
+                        <h3>Tools</h3>
+                        <p>Docker, GitHub, Visual Studio Code, Visual Studio, Android Studio</p>
+                    </div>
+                    <div class="skill-box">
+                        <h3>Concepts</h3>
+                        <p>Databases, Agile, Test-Driven Development, Full-Stack Development, Computer Networks, Mobile App Programming</p>
+                    </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+        <div class="aboutMeBar">
+                <h2><span class="hash">#</span>about-me</h2>
+            <div>
+            <div class="aboutMe">
+                <div class="aboutMeParagraph">
+                    <h2>Hello! I am Tyler.</h2>
+                    <h3>I’m a Computer Science major with a minor in Business, based in my hometown Salt Lake City, Utah and set to graduate December 2025.</h3>
+                    <h3>My passion is to develop user-friendly applications and enhance system performance to tackle real-world challenges.</h3>
+                </div>
+                <div class="aboutMePicture">
+                    <img class="catAndMe" src="file.png" alt="catAndMe">
+                </div>
+            </div>
+    </body>
+</html>
