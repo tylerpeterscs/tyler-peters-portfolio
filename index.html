@@ -59,9 +59,6 @@
                 </div>
             </div>
 
-            <div class="page-turn-effect"></div>
-            <div class="page-fold"></div>
-
             <div class="page-navigation">
                 <button class="nav-button next-page">Turn Page →</button>
             </div>
@@ -150,9 +147,6 @@
                 </div>
             </div>
 
-            <div class="page-turn-effect"></div>
-            <div class="page-fold"></div>
-
             <div class="page-navigation">
                 <button class="nav-button prev-page">← Previous</button>
                 <button class="nav-button next-page">Next →</button>
@@ -200,9 +194,6 @@
                 </div>
             </div>
 
-            <div class="page-turn-effect"></div>
-            <div class="page-fold"></div>
-
             <div class="page-navigation">
                 <button class="nav-button prev-page">← Previous</button>
                 <button class="nav-button next-page">Next →</button>
@@ -231,9 +222,6 @@
                 </div>
             </div>
 
-            <div class="page-turn-effect"></div>
-            <div class="page-fold"></div>
-
             <div class="page-navigation">
                 <button class="nav-button prev-page">← Previous</button>
             </div>
@@ -250,7 +238,6 @@
         const nextButtons = document.querySelectorAll('.next-page');
         const prevButtons = document.querySelectorAll('.prev-page');
         const bookmarks = document.querySelectorAll('.bookmark');
-        const pageTurnEffects = document.querySelectorAll('.page-turn-effect');
 
         // Current page tracker
         let currentPage = 0;
@@ -261,25 +248,6 @@
             setTimeout(() => {
                 showPage(1);
             }, 1000);
-        });
-
-        // Initialize page turn effects
-        pageTurnEffects.forEach(effect => {
-            effect.addEventListener('click', function() {
-                const parentPage = this.closest('.book-page');
-                const pageId = parseInt(parentPage.id.replace('page', ''));
-
-                parentPage.classList.add('turning');
-
-                setTimeout(() => {
-                    parentPage.classList.remove('active');
-                    parentPage.classList.remove('turning');
-
-                    if (pageId < bookPages.length) {
-                        showPage(pageId + 1);
-                    }
-                }, 500);
-            });
         });
 
         // Navigation buttons
