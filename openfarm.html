@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>OpenFarm — Case Study | Tyler Peters</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Page-specific styles (scoped) -->
+    <style>
+        /* Layout shell reusing the "book-page" look */
+        .case-wrapper {
+          width: 90%;
+          max-width: 1000px;
+          margin: 4vh auto;
+        }
+        .case-card {
+          background: #f5efe0;
+          color: #4a2511;
+          box-shadow: inset 0 0 30px rgba(0,0,0,0.2), 0 0 5px rgba(0,0,0,0.1);
+          border-radius: 5px 15px 15px 5px;
+          padding: 32px;
+        }
+        .crumbs {
+          display: flex; gap: 8px; align-items: center; font-size: .95rem; margin-bottom: 18px;
+        }
+        .crumbs a { color: #8b4513; text-decoration: none; }
+        .crumbs a:hover { text-decoration: underline; }
+
+        .hero {
+          display: grid;
+          grid-template-columns: 1.2fr .8fr;
+          gap: 24px;
+          align-items: center;
+          margin-bottom: 24px;
+        }
+        .hero h1 { font-family: 'Times New Roman', serif; font-size: 2.2rem; margin-bottom: 6px; }
+        .tagline { font-style: italic; color: #8b4513; margin-bottom: 14px; }
+        .meta {
+          display: grid; gap: 6px; font-size: .98rem;
+          border-left: 5px solid #8b4513; padding-left: 12px; background:#f0e6d2; padding: 12px;
+        }
+        .hero-media {
+          border: 8px solid #f0e6d2; box-shadow: 0 0 20px rgba(0,0,0,.18);
+        }
+        .hero-media img, .hero-media video { width: 100%; display:block; }
+
+        section { margin-top: 36px; }
+        section h2 {
+          font-family: 'Times New Roman', serif;
+          font-size: 1.6rem;
+          border-bottom: 1px solid #8b4513;
+          padding-bottom: 6px;
+          margin-bottom: 16px;
+        }
+        .two-col {
+          display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+        }
+        .ui-gallery, .process-gallery {
+          display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+        }
+        .ui-gallery img, .process-gallery img {
+          width: 100%; display:block; cursor: zoom-in;
+          border: 4px solid #f0e6d2; box-shadow: 0 6px 16px rgba(0,0,0,.16);
+        }
+
+        /* Lightbox */
+        .lightbox {
+          position: fixed; inset: 0; background: rgba(0,0,0,.7);
+          display: none; align-items: center; justify-content: center; z-index: 9999;
+          padding: 24px;
+        }
+        .lightbox.open { display: flex; }
+        .lightbox img {
+          max-width: min(1200px, 95vw);
+          max-height: 90vh;
+          border: 6px solid #f0e6d2; box-shadow: 0 10px 30px rgba(0,0,0,.5);
+          background: #f5efe0;
+        }
+        .lightbox .close {
+          position: fixed; top: 16px; right: 20px; font-size: 1.2rem;
+          background: #8b4513; color: #f0e6d2; border: none; padding: 8px 12px; cursor: pointer;
+          border-radius: 6px;
+        }
+
+        .pill-list { display:flex; flex-wrap:wrap; gap:8px; }
+        .pill { background:#f0e6d2; border:1px solid #8b4513; padding:4px 10px; border-radius:999px; font-size:.9rem; }
+
+        .impact-cards {
+          display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+        }
+        .impact-cards .card {
+          background:#f0e6d2; border:1px solid #8b4513; padding:14px; border-radius:6px;
+          box-shadow: 0 3px 10px rgba(0,0,0,.08);
+        }
+
+        .links {
+          display:flex; flex-wrap:wrap; gap:10px; margin-top: 8px;
+        }
+        .btn-link {
+          text-decoration:none; background:#8b4513; color:#f0e6d2; padding:10px 14px; border-radius:6px;
+          display:inline-flex; align-items:center; gap:8px; border:1px solid #4a2511;
+        }
+        .btn-link.alt { background:#a0522d; }
+        .btn-link:hover { filter: brightness(1.05); transform: translateY(-1px); }
+
+        /* Responsive */
+        @media (max-width: 900px){
+          .hero { grid-template-columns: 1fr; }
+          .two-col { grid-template-columns: 1fr; }
+          .ui-gallery, .process-gallery { grid-template-columns: 1fr 1fr; }
+          .impact-cards { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 520px){
+          .ui-gallery, .process-gallery { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="case-wrapper">
+    <div class="case-card">
+        <!-- Breadcrumbs / back -->
+        <nav class="crumbs">
+            <a href="index.html">← Back to Portfolio</a>
+            <span>•</span>
+            <span>OpenFarm Case Study</span>
+        </nav>
+
+        <!-- HERO -->
+        <header class="hero">
+            <div>
+                <h1>OpenFarm</h1>
+                <div class="tagline">A scalable 3D print-farm platform for university makerspaces.</div>
+                <div class="meta">
+                    <div><strong>Role:</strong> Co-Founder • Lead Dev & UI/UX</div>
+                    <div><strong>Stack:</strong> C# (Avalonia), PostgreSQL, RabbitMQ, Docker</div>
+                    <div><strong>Timeline:</strong> Aug 2024 – Present</div>
+                    <div class="pill-list">
+                        <span class="pill">Desktop App</span>
+                        <span class="pill">Design System</span>
+                        <span class="pill">Real-time Messaging</span>
+                        <span class="pill">Scalable Infra</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-media">
+                <!-- Swap this screenshot or use a short muted looping MP4 if you have one -->
+                <img src="images/openfarm/dashboard.png" alt="OpenFarm dashboard hero">
+            </div>
+        </header>
+
+        <!-- OVERVIEW -->
+        <section>
+            <h2>Overview</h2>
+            <div class="two-col">
+                <p>
+                    OpenFarm streamlines job submission, staff review, payment tracking, and maintenance for university print farms.
+                    I co-founded the project with three teammates and led the Avalonia desktop app UI/UX, ViewModel architecture,
+                    and design system. I also produced the Figma prototypes and early wireframes that informed the final UI.
+                </p>
+                <div>
+                    <div class="links">
+                        <!-- Replace these hrefs with your real links -->
+                        <a class="btn-link" href="https://your-repo-or-site" target="_blank" rel="noopener">View Repo / Site</a>
+                        <a class="btn-link alt" href="#figma">Jump to Figma</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- UI SHOWCASE -->
+        <section>
+            <h2>UI Showcase</h2>
+            <p>Final desktop UI screens from the Avalonia app.</p>
+            <div class="ui-gallery">
+                <img src="images/openfarm/printjobs.png" alt="Print jobs view" data-lightbox>
+                <img src="images/openfarm/users.png" alt="User management" data-lightbox>
+                <img src="images/openfarm/stats.png" alt="Statistics dashboard" data-lightbox>
+            </div>
+        </section>
+
+        <!-- DESIGN PROCESS -->
+        <section id="process">
+            <h2>Design Process</h2>
+            <div class="two-col">
+                <div>
+                    <h3>Sketches & Wireframes</h3>
+                    <p>
+                        I started with paper sketches to align on core workflows (submit-review-fulfill), then produced grayscale
+                        wireframes to validate hierarchy, filters, and dense tables before visual styling.
+                    </p>
+                    <div class="process-gallery">
+                        <img src="images/openfarm/sketches.jpg" alt="Early sketches" data-lightbox>
+                        <img src="images/openfarm/wireframes.png" alt="Lo-fi wireframes" data-lightbox>
+                        <img src="images/openfarm/design-system.png" alt="Design tokens & components" data-lightbox>
+                    </div>
+                </div>
+                <div id="figma">
+                    <h3>Interactive Figma Prototype</h3>
+                    <!-- Replace the URL with your actual Figma file share link -->
+                    <iframe
+                            style="width:100%; height:420px; border:1px solid #8b4513; border-radius:8px;"
+                            src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/YOUR-FIGMA-FILE-ID"
+                            allowfullscreen>
+                    </iframe>
+                    <div class="links" style="margin-top:10px;">
+                        <a class="btn-link" href="https://www.figma.com/file/YOUR-FIGMA-FILE-ID" target="_blank" rel="noopener">Open in Figma</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARCHITECTURE -->
+        <section>
+            <h2>Technical Architecture</h2>
+            <div class="two-col">
+                <div>
+                    <ul style="line-height:1.6;">
+                        <li><strong>Avalonia MVVM:</strong> ViewModels for Jobs, Users, Printers, and Stats; data-binding with observable collections.</li>
+                        <li><strong>DatabaseAccessHelper:</strong> typed helpers for clean DB boundaries.</li>
+                        <li><strong>RabbitMQ:</strong> pub/sub for job state updates and file ingestion events.</li>
+                        <li><strong>Docker:</strong> Postgres & RMQ containers for reproducible dev environments and campus deployment.</li>
+                    </ul>
+                </div>
+                <div class="hero-media" style="transform: rotate(-1deg);">
+                    <!-- Swap for an actual diagram image if you have one -->
+                    <img src="images/openfarm/architecture.png" alt="High-level architecture diagram">
+                </div>
+            </div>
+        </section>
+
+        <!-- IMPACT -->
+        <section>
+            <h2>Impact</h2>
+            <div class="impact-cards">
+                <div class="card"><strong>Queue Time ↓</strong><br/>Manual tracking reduced from ~15 min to &lt; 1 min per job.</div>
+                <div class="card"><strong>Staff Load ↓</strong><br/>Role-based screens simplified reviews & escalations.</div>
+                <div class="card"><strong>Ready to Scale</strong><br/>Dockerized stack designed for adoption by other labs.</div>
+            </div>
+        </section>
+
+        <!-- REFLECTION -->
+        <section>
+            <h2>Reflection</h2>
+            <p>
+                Translating Figma concepts into robust, data-bound Avalonia views sharpened my sense for component APIs,
+                accessibility, and system constraints. The biggest lesson: design the information architecture first—then let
+                visuals serve clarity and speed.
+            </p>
+        </section>
+
+        <!-- FOOT LINKS -->
+        <section>
+            <h2>Links</h2>
+            <div class="links">
+                <a class="btn-link" href="https://your-repo-or-site" target="_blank" rel="noopener">Repository / Live</a>
+                <a class="btn-link alt" href="OpenFarm_CaseStudy.pdf" target="_blank" rel="noopener">Download PDF Case Study</a>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+    <button class="close" id="lbClose" aria-label="Close">Close ✕</button>
+    <img alt="">
+</div>
+
+<script>
+    // Simple lightbox for any image with [data-lightbox]
+    (function(){
+      const lb = document.getElementById('lightbox');
+      const lbImg = lb.querySelector('img');
+      const lbClose = document.getElementById('lbClose');
+
+      document.querySelectorAll('[data-lightbox]').forEach(img => {
+        img.addEventListener('click', () => {
+          lbImg.src = img.src;
+          lbImg.alt = img.alt || '';
+          lb.classList.add('open');
+        });
+      });
+
+      function closeLB(){ lb.classList.remove('open'); lbImg.src = ''; }
+      lbClose.addEventListener('click', closeLB);
+      lb.addEventListener('click', (e) => { if(e.target === lb) closeLB(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLB(); });
+    })();
+</script>
+</body>
+</html>
