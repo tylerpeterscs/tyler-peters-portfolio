@@ -114,6 +114,22 @@
         @media (max-width: 520px){
           .ui-gallery, .process-gallery { grid-template-columns: 1fr; }
         }
+        .ui-gallery figure {
+          margin: 0;
+        }
+
+        .ui-gallery figcaption {
+          font-size: 0.9rem;
+          color: #4a2511;
+          background-color: #f0e6d2;
+          border: 1px solid #8b4513;
+          border-top: none;
+          text-align: center;
+          padding: 6px;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+          border-radius: 0 0 6px 6px;
+        }
+
     </style>
 </head>
 <body>
@@ -173,40 +189,51 @@
             <h2>UI Showcase</h2>
             <p>
                 These six screens illustrate OpenFarm’s core workflow—from overview to queue triage,
-                printer status, user administration, live stats, and email communications. These screens are
-                still in progress since our final release is on November 21.
+                printer status, user administration, live stats, and email communications.
             </p>
 
             <div class="ui-gallery">
-                <!-- 1. Overview / Home -->
-                <img src="images/openfarm/dashboard.png"
-                     alt="Dashboard overview with KPIs, quick links, and status widgets"
-                     data-lightbox>
+                <figure>
+                    <img src="images/openfarm/home.png"
+                         alt="Dashboard overview with KPIs, quick links, and status widgets"
+                         data-lightbox>
+                    <figcaption>Dashboard overview with KPIs, quick links, and status widgets</figcaption>
+                </figure>
 
-                <!-- 2. Print Jobs (queue triage) -->
-                <img src="images/openfarm/printjobs.png"
-                     alt="Print jobs queue with filters, statuses, and bulk actions"
-                     data-lightbox>
+                <figure>
+                    <img src="images/openfarm/printjobs.png"
+                         alt="Print jobs queue with filters, statuses, and bulk actions"
+                         data-lightbox>
+                    <figcaption>Print jobs queue with filters, statuses, and bulk actions</figcaption>
+                </figure>
 
-                <!-- 3. Printers -->
-                <img src="images/openfarm/printers.png"
-                     alt="Printers view showing model, status, and loaded material"
-                     data-lightbox>
+                <figure>
+                    <img src="images/openfarm/staffreview.png"
+                         alt="Staff review screen showing GCode preview and option to open PrusaSlicer"
+                         data-lightbox>
+                    <figcaption>Staff review screen showing GCode preview and option to open PrusaSlicer</figcaption>
+                </figure>
 
-                <!-- 4. Users / Admin -->
-                <img src="images/openfarm/users.png"
-                     alt="User management with suspend/unsuspend and org IDs"
-                     data-lightbox>
+                <figure>
+                    <img src="images/openfarm/users.png"
+                         alt="User management with suspend/unsuspend and org IDs"
+                         data-lightbox>
+                    <figcaption>User management with suspend/unsuspend and org IDs</figcaption>
+                </figure>
 
-                <!-- 5. Stats / Reports -->
-                <img src="images/openfarm/stats.png"
-                     alt="Statistics dashboard with completion rates and throughput"
-                     data-lightbox>
+                <figure>
+                    <img src="images/openfarm/stats.png"
+                         alt="Statistics dashboard with completion rates and throughput"
+                         data-lightbox>
+                    <figcaption>Statistics dashboard with completion rates and throughput</figcaption>
+                </figure>
 
-                <!-- 6. Email / Comms -->
-                <img src="images/openfarm/emails.png"
-                     alt="Email communication inbox grouped by sender with resolve action"
-                     data-lightbox>
+                <figure>
+                    <img src="images/openfarm/emails.png"
+                         alt="Email communication inbox grouped by sender with resolve action"
+                         data-lightbox>
+                    <figcaption>Email communication inbox grouped by sender with resolve action</figcaption>
+                </figure>
             </div>
         </section>
 
@@ -221,7 +248,7 @@
                         wireframes to validate hierarchy, filters, and dense tables before visual styling.
                     </p>
                     <div class="process-gallery">
-                        <img src="images/openfarm/sketches.jpg" alt="Early sketches" data-lightbox>
+                        <img src="images/openfarm/sketches.png" alt="Early sketches" data-lightbox>
                         <img src="images/openfarm/wireframes.png" alt="Lo-fi wireframes" data-lightbox>
                         <img src="images/openfarm/architecture.png" alt="Design tokens & components" data-lightbox>
                     </div>
@@ -230,7 +257,7 @@
                     <h3>Figma Prototypes</h3>
                     <iframe
                             style="width:100%; height:420px; border:1px solid #8b4513; border-radius:8px;"
-                            src="https://www.figma.com/design/T0i6itktsW55vm9n79MITi/OpenFarm?node-id=0-1"
+                            src="https://embed.figma.com/design/T0i6itktsW55vm9n79MITi/OpenFarm?node-id=198-1228&embed-host=share"
                             allowfullscreen>
                     </iframe>
                 </div>
