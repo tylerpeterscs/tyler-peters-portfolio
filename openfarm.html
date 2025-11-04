@@ -134,7 +134,7 @@
                 <div class="meta">
                     <div><strong>Role:</strong> Co-Founder • Lead Dev & UI/UX</div>
                     <div><strong>Stack:</strong> C# (Avalonia), PostgreSQL, RabbitMQ, Docker</div>
-                    <div><strong>Timeline:</strong> Aug 2024 – Present</div>
+                    <div><strong>Timeline:</strong> Jan 2024 – Present</div>
                     <div class="pill-list">
                         <span class="pill">Desktop App</span>
                         <span class="pill">Design System</span>
@@ -144,8 +144,7 @@
                 </div>
             </div>
             <div class="hero-media">
-                <!-- Swap this screenshot or use a short muted looping MP4 if you have one -->
-                <img src="images/openfarm/dashboard.png" alt="OpenFarm dashboard hero">
+                <img src="images/openfarm/OpenFarmLogo.png" alt="OpenFarm Logo">
             </div>
         </header>
 
@@ -156,13 +155,14 @@
                 <p>
                     OpenFarm streamlines job submission, staff review, payment tracking, and maintenance for university print farms.
                     I co-founded the project with three teammates and led the Avalonia desktop app UI/UX, ViewModel architecture,
-                    and design system. I also produced the Figma prototypes and early wireframes that informed the final UI.
+                    and user studies. I also produced the Figma prototypes and early wireframes that informed the final UI.<br>
+                    <br>
+                    We are still in the final development of the system, thus we do not have a repo yet. Keep tuned for our final phase
+                    of OpenFarm.
                 </p>
                 <div>
                     <div class="links">
-                        <!-- Replace these hrefs with your real links -->
-                        <a class="btn-link" href="https://your-repo-or-site" target="_blank" rel="noopener">View Repo / Site</a>
-                        <a class="btn-link alt" href="#figma">Jump to Figma</a>
+                        <a class="btn-link" href="https://your-repo-or-site" target="_blank" rel="noopener">SOON: Repo</a>
                     </div>
                 </div>
             </div>
@@ -171,11 +171,42 @@
         <!-- UI SHOWCASE -->
         <section>
             <h2>UI Showcase</h2>
-            <p>Final desktop UI screens from the Avalonia app.</p>
+            <p>
+                These six screens illustrate OpenFarm’s core workflow—from overview to queue triage,
+                printer status, user administration, live stats, and email communications. These screens are
+                still in progress since our final release is on November 21.
+            </p>
+
             <div class="ui-gallery">
-                <img src="images/openfarm/printjobs.png" alt="Print jobs view" data-lightbox>
-                <img src="images/openfarm/users.png" alt="User management" data-lightbox>
-                <img src="images/openfarm/stats.png" alt="Statistics dashboard" data-lightbox>
+                <!-- 1. Overview / Home -->
+                <img src="images/openfarm/dashboard.png"
+                     alt="Dashboard overview with KPIs, quick links, and status widgets"
+                     data-lightbox>
+
+                <!-- 2. Print Jobs (queue triage) -->
+                <img src="images/openfarm/printjobs.png"
+                     alt="Print jobs queue with filters, statuses, and bulk actions"
+                     data-lightbox>
+
+                <!-- 3. Printers -->
+                <img src="images/openfarm/printers.png"
+                     alt="Printers view showing model, status, and loaded material"
+                     data-lightbox>
+
+                <!-- 4. Users / Admin -->
+                <img src="images/openfarm/users.png"
+                     alt="User management with suspend/unsuspend and org IDs"
+                     data-lightbox>
+
+                <!-- 5. Stats / Reports -->
+                <img src="images/openfarm/stats.png"
+                     alt="Statistics dashboard with completion rates and throughput"
+                     data-lightbox>
+
+                <!-- 6. Email / Comms -->
+                <img src="images/openfarm/emails.png"
+                     alt="Email communication inbox grouped by sender with resolve action"
+                     data-lightbox>
             </div>
         </section>
 
@@ -192,20 +223,16 @@
                     <div class="process-gallery">
                         <img src="images/openfarm/sketches.jpg" alt="Early sketches" data-lightbox>
                         <img src="images/openfarm/wireframes.png" alt="Lo-fi wireframes" data-lightbox>
-                        <img src="images/openfarm/design-system.png" alt="Design tokens & components" data-lightbox>
+                        <img src="images/openfarm/architecture.png" alt="Design tokens & components" data-lightbox>
                     </div>
                 </div>
                 <div id="figma">
-                    <h3>Interactive Figma Prototype</h3>
-                    <!-- Replace the URL with your actual Figma file share link -->
+                    <h3>Figma Prototypes</h3>
                     <iframe
                             style="width:100%; height:420px; border:1px solid #8b4513; border-radius:8px;"
-                            src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/YOUR-FIGMA-FILE-ID"
+                            src="https://www.figma.com/design/T0i6itktsW55vm9n79MITi/OpenFarm?node-id=0-1"
                             allowfullscreen>
                     </iframe>
-                    <div class="links" style="margin-top:10px;">
-                        <a class="btn-link" href="https://www.figma.com/file/YOUR-FIGMA-FILE-ID" target="_blank" rel="noopener">Open in Figma</a>
-                    </div>
                 </div>
             </div>
         </section>
@@ -223,7 +250,6 @@
                     </ul>
                 </div>
                 <div class="hero-media" style="transform: rotate(-1deg);">
-                    <!-- Swap for an actual diagram image if you have one -->
                     <img src="images/openfarm/architecture.png" alt="High-level architecture diagram">
                 </div>
             </div>
@@ -239,6 +265,43 @@
             </div>
         </section>
 
+        <!-- PROJECT DOCUMENTATION & TIMELINE -->
+        <section>
+            <h2>Project Documentation & Research Timeline</h2>
+            <p>
+                OpenFarm evolved through multiple research, design, and development stages over two semesters.
+                Below is a summary timeline and selected documents from those milestones.
+            </p>
+
+            <!-- Discovery & Research -->
+            <p style="font-weight:bold; margin-top:25px;">Discovery & Research</p>
+            <div class="links">
+                <a class="btn-link" href="https://docs.google.com/document/d/1Rr44_DOpzqRGtuIBQiKC5ug8AlMew0gMcPP3kMCyx0U/edit?usp=sharing" target="_blank" rel="noopener">Intro & Background</a>
+                <a class="btn-link alt" href="https://docs.google.com/document/d/1hOuQC2Ywpu2F1adrEZJI8N2CZk-AMkTM2TN9BVS-gT8/edit?usp=sharing" target="_blank" rel="noopener">Requirements Analysis</a>
+            </div>
+
+            <!-- Ideation & Design -->
+            <p style="font-weight:bold; margin-top:25px;">Ideation & Design</p>
+            <div class="links">
+                <a class="btn-link" href="https://docs.google.com/document/d/1vn16QoNVXi7PntnR-AL7COyuxQ3TBsdd5MDiObrtUM0/edit?usp=sharing" target="_blank" rel="noopener">Use Cases & UI Sketches</a>
+                <a class="btn-link alt" href="https://docs.google.com/document/d/1iE31BbUqtvfYisOvxDvQGhvGhZpSUyqzEoAV6r-Ez6I/edit?usp=sharing" target="_blank" rel="noopener">User Study Report</a>
+            </div>
+
+            <!-- Implementation & Beta -->
+            <p style="font-weight:bold; margin-top:25px;">Implementation & Beta</p>
+            <div class="links">
+                <a class="btn-link" href="https://docs.google.com/document/d/1H_smJFDLy90W6dO8RdO-7vpyR0hWhTq9Sp174iwdpBI/edit?usp=sharing" target="_blank" rel="noopener">Software Engineering Tools & Techniques</a>
+                <a class="btn-link alt" href="https://docs.google.com/document/d/1u8Qj0QJQRkpwY_5GRJ4ahbKeE4-KvJq8FybblMUCuK4/edit?usp=sharing" target="_blank" rel="noopener">Beta Presentation Review</a>
+            </div>
+
+            <!-- Finalization & Documentation -->
+            <p style="font-weight:bold; margin-top:25px;">Finalization & Documentation</p>
+            <div class="links">
+                <a class="btn-link" href="https://docs.google.com/document/d/1CWQ5-pCGet-6VpVJ_cRf-vWYHa1mRN2RpgrzLUuEdpE/edit?usp=sharing" target="_blank" rel="noopener">Final Design Document</a>
+                <a class="btn-link alt" href="https://docs.google.com/document/d/1fFwuejq7z5PPiJk_JCzhMy_zmmrlINaNOSBw0DwjOp0/edit?usp=sharing" target="_blank" rel="noopener">Formalized Team Project Doc</a>
+            </div>
+        </section>
+
         <!-- REFLECTION -->
         <section>
             <h2>Reflection</h2>
@@ -249,14 +312,6 @@
             </p>
         </section>
 
-        <!-- FOOT LINKS -->
-        <section>
-            <h2>Links</h2>
-            <div class="links">
-                <a class="btn-link" href="https://your-repo-or-site" target="_blank" rel="noopener">Repository / Live</a>
-                <a class="btn-link alt" href="OpenFarm_CaseStudy.pdf" target="_blank" rel="noopener">Download PDF Case Study</a>
-            </div>
-        </section>
     </div>
 </div>
 
