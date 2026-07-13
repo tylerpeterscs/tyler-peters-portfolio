@@ -415,12 +415,69 @@ body::after {
   margin-bottom: 15px;
 }
 .about-text h3 { font-weight: normal; margin-bottom: 15px; line-height: 1.6; }
-.about-image { flex: 0 0 40%; }
-.about-image img {
+.about-gallery {
+  flex: 0 0 42%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-self: flex-start;
+}
+
+.about-photo {
+  margin: 0;
+  padding: 8px 8px 12px;
+  background: #f0e6d2;
+  border: 1px solid rgba(139, 69, 19, 0.42);
+  box-shadow: 0 10px 22px rgba(74, 37, 17, 0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-photo:hover {
+  transform: translateY(-4px) rotate(0deg);
+  box-shadow: 0 15px 28px rgba(74, 37, 17, 0.26);
+}
+
+.about-photo img {
+  display: block;
   width: 100%;
-  border: 8px solid #f0e6d2;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
-  transform: rotate(-3deg);
+  height: 175px;
+  object-fit: cover;
+  border: 1px solid rgba(74, 37, 17, 0.22);
+}
+
+.about-photo figcaption {
+  margin-top: 9px;
+  color: #8b4513;
+  font-size: 0.88rem;
+  font-style: italic;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+.about-photo-primary {
+  grid-column: 1 / -1;
+  transform: rotate(-1.5deg);
+}
+
+.about-photo-primary img {
+  height: 240px;
+  object-position: center;
+}
+
+.about-photo-skiing {
+  transform: rotate(1.5deg);
+}
+
+.about-photo-skiing img {
+  object-position: center 38%;
+}
+
+.about-photo-biking {
+  transform: rotate(-1deg);
+}
+
+.about-photo-biking img {
+  object-position: center 32%;
 }
 
 /* Page corner / fold */
@@ -595,11 +652,27 @@ body::after {
 
   .intro-picture,
   .skills-image,
-  .about-image { margin-top: 20px; }
+  .about-gallery { margin-top: 20px; }
+
+  .about-gallery {
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-photo-primary img { height: 280px; }
+  .about-photo img { height: 210px; }
 
   .bookmark-tabs { right: -10px; }
   .bookmark { width: 20px; height: 60px; font-size: 0.8em; }
 }
+
+@media (max-width: 520px) {
+  .about-gallery { grid-template-columns: 1fr; }
+  .about-photo-primary { grid-column: auto; }
+  .about-photo-primary img,
+  .about-photo img { height: 245px; }
+}
+
 /* =========================
    Skills & Recognition Page
 ========================= */
