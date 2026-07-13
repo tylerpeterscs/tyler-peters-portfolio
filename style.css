@@ -416,16 +416,16 @@ body::after {
 }
 .about-text h3 { font-weight: normal; margin-bottom: 15px; line-height: 1.6; }
 .about-gallery {
-  flex: 0 0 42%;
+  flex: 0 0 44%;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  gap: 15px;
   align-self: flex-start;
 }
 
 .about-photo {
   margin: 0;
-  padding: 8px 8px 12px;
+  padding: 8px 8px 11px;
   background: #f0e6d2;
   border: 1px solid rgba(139, 69, 19, 0.42);
   box-shadow: 0 10px 22px rgba(74, 37, 17, 0.2);
@@ -435,20 +435,21 @@ body::after {
 .about-photo:hover {
   transform: translateY(-4px) rotate(0deg);
   box-shadow: 0 15px 28px rgba(74, 37, 17, 0.26);
+  z-index: 2;
 }
 
 .about-photo img {
   display: block;
   width: 100%;
-  height: 175px;
+  height: 155px;
   object-fit: cover;
   border: 1px solid rgba(74, 37, 17, 0.22);
 }
 
 .about-photo figcaption {
-  margin-top: 9px;
+  margin-top: 8px;
   color: #8b4513;
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-style: italic;
   text-align: center;
   letter-spacing: 0.03em;
@@ -456,16 +457,32 @@ body::after {
 
 .about-photo-primary {
   grid-column: 1 / -1;
-  transform: rotate(-1.5deg);
+  transform: rotate(-1.25deg);
 }
 
 .about-photo-primary img {
-  height: 240px;
+  height: 220px;
   object-position: center;
 }
 
+.about-photo-graduation {
+  transform: rotate(1.2deg);
+}
+
+.about-photo-graduation img {
+  object-position: center 28%;
+}
+
+.about-photo-team {
+  transform: rotate(-1deg);
+}
+
+.about-photo-team img {
+  object-position: center 48%;
+}
+
 .about-photo-skiing {
-  transform: rotate(1.5deg);
+  transform: rotate(-1.25deg);
 }
 
 .about-photo-skiing img {
@@ -473,11 +490,27 @@ body::after {
 }
 
 .about-photo-biking {
-  transform: rotate(-1deg);
+  transform: rotate(1.1deg);
 }
 
 .about-photo-biking img {
-  object-position: center 32%;
+  object-position: center 35%;
+}
+
+.about-photo-travel {
+  transform: rotate(1.35deg);
+}
+
+.about-photo-travel img {
+  object-position: center 48%;
+}
+
+.about-photo-showcase {
+  transform: rotate(-1.2deg);
+}
+
+.about-photo-showcase img {
+  object-position: center 30%;
 }
 
 /* Page corner / fold */
@@ -660,7 +693,7 @@ body::after {
   }
 
   .about-photo-primary img { height: 280px; }
-  .about-photo img { height: 210px; }
+  .about-photo img { height: 205px; }
 
   .bookmark-tabs { right: -10px; }
   .bookmark { width: 20px; height: 60px; font-size: 0.8em; }
