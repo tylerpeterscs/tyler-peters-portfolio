@@ -130,6 +130,36 @@
           border-radius: 0 0 6px 6px;
         }
 
+        /* Resource cards use the same parchment-and-ink styling as the rest of the site */
+        .resource-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 14px;
+          margin-top: 16px;
+        }
+
+        .resource-card {
+          background: #f0e6d2;
+          border: 1px solid #8b4513;
+          padding: 16px;
+          border-radius: 6px;
+          box-shadow: 0 3px 10px rgba(0,0,0,.08);
+        }
+
+        .resource-card h3 {
+          color: #4a2511;
+          margin-bottom: 6px;
+        }
+
+        .resource-card p {
+          margin-bottom: 12px;
+          line-height: 1.5;
+        }
+
+        @media (max-width: 700px) {
+          .resource-grid { grid-template-columns: 1fr; }
+        }
+
     </style>
 </head>
 <body>
@@ -148,14 +178,15 @@
                 <h1>OpenFarm</h1>
                 <div class="tagline">A scalable 3D print-farm platform for university makerspaces.</div>
                 <div class="meta">
-                    <div><strong>Role:</strong> Co-Founder • Lead Dev & UI/UX</div>
+                    <div><strong>Role:</strong> Co-Founder • UI/UX Designer & Desktop App Developer</div>
                     <div><strong>Stack:</strong> C# (Avalonia), PostgreSQL, RabbitMQ, Docker</div>
                     <div><strong>Timeline:</strong> January 2025 – Present</div>
+                    <div><strong>Status:</strong> Published as an open-source project</div>
                     <div class="pill-list">
                         <span class="pill">Desktop App</span>
-                        <span class="pill">Design System</span>
-                        <span class="pill">Real-time Messaging</span>
-                        <span class="pill">Scalable Infra</span>
+                        <span class="pill">User Research</span>
+                        <span class="pill">MVVM</span>
+                        <span class="pill">Open Source</span>
                     </div>
                 </div>
             </div>
@@ -169,16 +200,31 @@
             <h2>Overview</h2>
             <div class="two-col">
                 <p>
-                    OpenFarm streamlines job submission, staff review, payment tracking, and maintenance for university print farms.
-                    I co-founded the project with three teammates and led the Avalonia desktop app UI/UX, ViewModel architecture,
-                    and user studies. I also produced the Figma prototypes and early wireframes that informed the final UI.<br>
+                    OpenFarm is an open-source platform designed to simplify the day-to-day operation of
+                    university and small-scale 3D print farms. It brings job submission, staff review,
+                    payment tracking, printer management, statistics, and user communication into a more
+                    unified workflow.<br>
                     <br>
-                    We are still in the final development of the system, thus we do not have a repo yet. Keep tuned for our final phase
-                    of OpenFarm.
+                    I co-founded the project with three teammates and focused on the Avalonia desktop
+                    application. My contributions included UI/UX design, paper sketches, Figma prototypes,
+                    ViewModel architecture, job filtering, staff-review workflows, payment actions, printer
+                    management, and user research.
                 </p>
                 <div>
+                    <p>
+                        The project is now publicly available through its GitHub organization and project
+                        website. The repository includes the desktop application, backend services, Docker
+                        configuration, and setup documentation.
+                    </p>
                     <div class="links">
-                        <a class="btn-link" href="https://your-repo-or-site" target="_blank" rel="noopener">SOON: Repo</a>
+                        <a class="btn-link"
+                           href="https://github.com/OpenFarm-oss"
+                           target="_blank"
+                           rel="noopener noreferrer">View GitHub Repo</a>
+                        <a class="btn-link alt"
+                           href="https://openfarm3d.github.io/"
+                           target="_blank"
+                           rel="noopener noreferrer">Visit OpenFarm Website</a>
                     </div>
                 </div>
             </div>
@@ -188,8 +234,9 @@
         <section>
             <h2>UI Showcase</h2>
             <p>
-                These six screens illustrate OpenFarm’s core workflow—from overview to queue triage,
-                printer status, user administration, live stats, and email communications.
+                These six screens show the staff-facing workflow—from reviewing the overall system and
+                filtering print jobs to approving submissions, managing users, checking statistics, and
+                resolving email conversations.
             </p>
 
             <div class="ui-gallery">
@@ -244,8 +291,9 @@
                 <div>
                     <h3>Sketches & Wireframes</h3>
                     <p>
-                        I started with paper sketches to align on core workflows, then produced grayscale
-                        wireframes before visual styling.
+                        I began with paper sketches to explore how staff could move between the most
+                        important workflows. I then created grayscale wireframes and a Figma prototype
+                        before translating the selected direction into the Avalonia desktop application.
                     </p>
                     <div class="process-gallery">
                         <img src="images/openfarm/whiteboard.png" alt="Early sketches" data-lightbox>
@@ -270,10 +318,10 @@
             <div class="two-col">
                 <div>
                     <ul style="line-height:1.6;">
-                        <li><strong>Avalonia MVVM:</strong> ViewModels for Jobs, Users, Printers, and Stats; data-binding with observable collections.</li>
-                        <li><strong>DatabaseAccessHelper:</strong> typed helpers for clean DB boundaries.</li>
-                        <li><strong>RabbitMQ:</strong> pub/sub for job state updates and file ingestion events.</li>
-                        <li><strong>Docker:</strong> Postgres & RMQ containers for reproducible dev environments and campus deployment.</li>
+                        <li><strong>Avalonia MVVM:</strong> A cross-platform staff application with ViewModels for jobs, reviews, users, printers, messages, and statistics.</li>
+                        <li><strong>PostgreSQL:</strong> Stores print jobs, users, printers, materials, payment information, and operational state.</li>
+                        <li><strong>RabbitMQ:</strong> Coordinates job-state updates and events between the desktop application and supporting services.</li>
+                        <li><strong>Docker:</strong> Packages PostgreSQL, RabbitMQ, file processing, printer management, and other services for repeatable setup.</li>
                     </ul>
                 </div>
                 <div class="hero-media" style="transform: rotate(-1deg);">
@@ -282,13 +330,69 @@
             </div>
         </section>
 
-        <!-- IMPACT -->
+        <!-- PROJECT OUTCOMES -->
         <section>
-            <h2>Impact</h2>
+            <h2>Project Outcomes</h2>
             <div class="impact-cards">
-                <div class="card"><strong>Queue Time ↓</strong><br/>Manual tracking reduced from ~15 min to &lt; 1 min per job.</div>
-                <div class="card"><strong>Staff Load ↓</strong><br/>Role-based screens simplified reviews & escalations.</div>
-                <div class="card"><strong>Ready to Scale</strong><br/>Dockerized stack designed for adoption by other labs.</div>
+                <div class="card">
+                    <strong>Unified Workflow</strong><br>
+                    Connected submission, staff review, payment, printer operations, and communication in one system.
+                </div>
+                <div class="card">
+                    <strong>Cross-Platform Setup</strong><br>
+                    Used Avalonia and Docker so the project can be developed and deployed across common operating systems.
+                </div>
+                <div class="card">
+                    <strong>Open-Source Handoff</strong><br>
+                    Published the codebase, installation guidance, public website, poster, and supporting documentation.
+                </div>
+            </div>
+        </section>
+
+        <!-- PUBLIC PROJECT RESOURCES -->
+        <section>
+            <h2>Public Project Resources</h2>
+            <p>
+                These public materials provide different views of OpenFarm, from the source code and
+                installation instructions to the final poster and a high-level explanation of the system.
+            </p>
+
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h3>GitHub Repository</h3>
+                    <p>Explore the OpenFarm codebase, services, setup instructions, and open-source documentation.</p>
+                    <a class="btn-link"
+                       href="https://github.com/OpenFarm-oss"
+                       target="_blank"
+                       rel="noopener noreferrer">Open Repository</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>OpenFarm Website</h3>
+                    <p>View the public project website, team information, downloads, and setup guidance.</p>
+                    <a class="btn-link alt"
+                       href="https://openfarm3d.github.io/"
+                       target="_blank"
+                       rel="noopener noreferrer">Visit Website</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>Project Poster</h3>
+                    <p>See the visual summary created to present the problem, system, design, and final project.</p>
+                    <a class="btn-link"
+                       href="https://www.figma.com/design/oKNtaOuQcXd4lapM47923S/Poster?node-id=0-1&p=f&t=Ua8cMSXZ8YWNMg7z-0"
+                       target="_blank"
+                       rel="noopener noreferrer">View Poster</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>High-Level Overview</h3>
+                    <p>Review a simplified visual explanation of OpenFarm and how its main parts work together.</p>
+                    <a class="btn-link alt"
+                       href="https://www.figma.com/design/tTq3ZNIctPbej02mfFvsCo/Untitled?node-id=0-1&p=f&t=xWfcE0TPqoFJIw6F-0"
+                       target="_blank"
+                       rel="noopener noreferrer">View Overview</a>
+                </div>
             </div>
         </section>
 
@@ -303,29 +407,36 @@
             <!-- Discovery & Research -->
             <p style="font-weight:bold; margin-top:25px;">Discovery & Research</p>
             <div class="links">
-                <a class="btn-link" href="https://docs.google.com/document/d/1Rr44_DOpzqRGtuIBQiKC5ug8AlMew0gMcPP3kMCyx0U/edit?usp=sharing" target="_blank" rel="noopener">Intro & Background</a>
-                <a class="btn-link alt" href="https://docs.google.com/document/d/1hOuQC2Ywpu2F1adrEZJI8N2CZk-AMkTM2TN9BVS-gT8/edit?usp=sharing" target="_blank" rel="noopener">Requirements Analysis</a>
+                <a class="btn-link" href="https://docs.google.com/document/d/1Rr44_DOpzqRGtuIBQiKC5ug8AlMew0gMcPP3kMCyx0U/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Intro & Background</a>
+                <a class="btn-link alt" href="https://docs.google.com/document/d/1hOuQC2Ywpu2F1adrEZJI8N2CZk-AMkTM2TN9BVS-gT8/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Requirements Analysis</a>
             </div>
 
             <!-- Ideation & Design -->
             <p style="font-weight:bold; margin-top:25px;">Ideation & Design</p>
             <div class="links">
-                <a class="btn-link" href="https://docs.google.com/document/d/1vn16QoNVXi7PntnR-AL7COyuxQ3TBsdd5MDiObrtUM0/edit?usp=sharing" target="_blank" rel="noopener">Use Cases & UI Sketches</a>
-                <a class="btn-link alt" href="https://docs.google.com/document/d/1iE31BbUqtvfYisOvxDvQGhvGhZpSUyqzEoAV6r-Ez6I/edit?usp=sharing" target="_blank" rel="noopener">User Study Report</a>
+                <a class="btn-link" href="https://docs.google.com/document/d/1vn16QoNVXi7PntnR-AL7COyuxQ3TBsdd5MDiObrtUM0/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Use Cases & UI Sketches</a>
+                <a class="btn-link alt" href="https://docs.google.com/document/d/1iE31BbUqtvfYisOvxDvQGhvGhZpSUyqzEoAV6r-Ez6I/edit?usp=sharing" target="_blank" rel="noopener noreferrer">User Study Report</a>
             </div>
 
             <!-- Implementation & Beta -->
             <p style="font-weight:bold; margin-top:25px;">Implementation & Beta</p>
             <div class="links">
-                <a class="btn-link" href="https://docs.google.com/document/d/1H_smJFDLy90W6dO8RdO-7vpyR0hWhTq9Sp174iwdpBI/edit?usp=sharing" target="_blank" rel="noopener">Software Engineering Tools & Techniques</a>
-                <a class="btn-link alt" href="https://docs.google.com/document/d/1u8Qj0QJQRkpwY_5GRJ4ahbKeE4-KvJq8FybblMUCuK4/edit?usp=sharing" target="_blank" rel="noopener">Beta Presentation Review</a>
+                <a class="btn-link" href="https://docs.google.com/document/d/1H_smJFDLy90W6dO8RdO-7vpyR0hWhTq9Sp174iwdpBI/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Software Engineering Tools & Techniques</a>
+                <a class="btn-link alt" href="https://docs.google.com/document/d/1u8Qj0QJQRkpwY_5GRJ4ahbKeE4-KvJq8FybblMUCuK4/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Beta Presentation Review</a>
             </div>
 
             <!-- Finalization & Documentation -->
             <p style="font-weight:bold; margin-top:25px;">Finalization & Documentation</p>
             <div class="links">
-                <a class="btn-link" href="https://docs.google.com/document/d/1CWQ5-pCGet-6VpVJ_cRf-vWYHa1mRN2RpgrzLUuEdpE/edit?usp=sharing" target="_blank" rel="noopener">Final Design Document</a>
-                <a class="btn-link alt" href="https://docs.google.com/document/d/1fFwuejq7z5PPiJk_JCzhMy_zmmrlINaNOSBw0DwjOp0/edit?usp=sharing" target="_blank" rel="noopener">Formalized Team Project Doc</a>
+                <a class="btn-link" href="https://docs.google.com/document/d/1CWQ5-pCGet-6VpVJ_cRf-vWYHa1mRN2RpgrzLUuEdpE/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Final Design Document</a>
+                <a class="btn-link alt" href="https://docs.google.com/document/d/1fFwuejq7z5PPiJk_JCzhMy_zmmrlINaNOSBw0DwjOp0/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Formalized Team Project Doc</a>
+            </div>
+
+            <!-- Public Release -->
+            <p style="font-weight:bold; margin-top:25px;">Public Release</p>
+            <div class="links">
+                <a class="btn-link" href="https://github.com/OpenFarm-oss" target="_blank" rel="noopener noreferrer">Open-Source Repository</a>
+                <a class="btn-link alt" href="https://openfarm3d.github.io/" target="_blank" rel="noopener noreferrer">Published Project Website</a>
             </div>
         </section>
 
@@ -333,10 +444,15 @@
         <section>
             <h2>Reflection</h2>
             <p>
-                Since I started working on this project in January of 2025, I have learned a lot of useful skills that I wish I could have incorporated into this project.
-                For example, this semester(Fall 2025) I have started Human Centered Systems and have taken the Google UI/UX Certificate (3/8 completed).
-                I wish I could have conducted even more user studies prior to coding, creating at least five sketches on paper to choose from,
-                create more user stories, and more. I am excited to grow my skills and continue evolving.
+                OpenFarm showed me how closely interaction design and software architecture affect one
+                another. Once a team begins building around a workflow, changing that workflow becomes
+                increasingly expensive, so early research and exploration matter.<br>
+                <br>
+                If I restarted the project, I would spend more time observing print-farm staff, create
+                and compare more paper concepts, define measurable usability goals, and test the
+                highest-risk workflows before implementation. At the same time, building the desktop
+                application gave me valuable experience translating UX decisions into real data,
+                system states, reusable components, and engineering constraints.
             </p>
         </section>
 
